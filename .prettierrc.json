@@ -1,0 +1,29 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "printWidth": 80,
+  "useTabs": true,
+  "semi": true,
+  "singleQuote": false,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "importOrder": [
+    "^react(.*)",
+    "^@react(.*)",
+    "<THIRD_PARTY_MODULES>",
+    "^@stores/(.*)$",
+    "^@routes/(.*)$",
+    "^@apis/(.*)$",
+    "^@utils/(.*)$",
+    "^@interfaces/(.*)$",
+    "^@typings/(.*)$",
+    "^@assets/(.*)$",
+    "^@components/(.*)$",
+    "^@pages/(.*)$",
+    "^@styles/(.*)$",
+    "@/(.*)",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
