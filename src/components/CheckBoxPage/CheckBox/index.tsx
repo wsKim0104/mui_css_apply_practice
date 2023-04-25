@@ -4,32 +4,27 @@ import { Checkbox, type CheckboxProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 /* checkbox 영역 */
-interface CustomizedMUICheckBoxProps extends CheckboxProps {
-	checkedColor?: string;
-	cssProperties?: React.CSSProperties;
-}
 
-const CustomizedMUICheckBox = styled(Checkbox)(
-	(props: CustomizedMUICheckBoxProps) => ({
-		width: "auto",
-		height: "auto",
-		/* checkbox 의 사이즈 조정 */
-		"&.MuiSvgIcon-root": { fontSize: 27.5 },
-		/* checkbox 가 check 되었을 때의 style */
-		"&.Mui-checked": {
-			color: props?.checkedColor ? props?.checkedColor : "orange",
-		},
-		"&.Mui-disabled": {
-			color: "#454545",
-		},
-		...props.cssProperties,
-	})
-);
+const CustomizedMUICheckBox = styled(Checkbox)((props) => ({
+	width: "auto",
+	height: "auto",
+	/* checkbox 의 사이즈 조정 */
+	"&.MuiSvgIcon-root": { fontSize: 27.5 },
+	/* checkbox 가 check 되었을 때의 style */
+	"&.Mui-checked": {
+		color: props?.theme?.palette?.primary?.main,
+	},
+	"&.Mui-disabled": {
+		color: props?.theme?.disabled?.main,
+	},
+	...props?.theme?.checkBoxCSSProperties,
+}));
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-const MUICheckBox: React.FC<CustomizedMUICheckBoxProps> = (props) => {
-	console.log(props);
+type MUICheckBoxProps = CheckboxProps;
+
+const MUICheckBox: React.FC<MUICheckBoxProps> = (props: MUICheckBoxProps) => {
 	return <CustomizedMUICheckBox {...label} {...props} />;
 };
 
